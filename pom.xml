@@ -37,11 +37,11 @@ LICENSE file.
   </scm>
   <dependencyManagement>
     <dependencies>
-      <dependency>
+    <!--  <dependency>
         <groupId>checkstyle</groupId>
         <artifactId>checkstyle</artifactId>
         <version>5.0</version>
-      </dependency>
+      </dependency> -->
       <dependency>
         <groupId>org.jdom</groupId>
         <artifactId>jdom</artifactId>
@@ -132,11 +132,14 @@ LICENSE file.
   <build>
     <pluginManagement>
       <plugins>
-        <plugin>
+        <!--<plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
+	  <configuration>
+	  	<skip> True </skip>
+	  </configuration>
           <version>2.15</version>
-        </plugin>
+        </plugin>-->
       </plugins>
     </pluginManagement>
     <plugins>
@@ -149,7 +152,7 @@ LICENSE file.
           <target>1.7</target>
         </configuration>
       </plugin>
-      <plugin>
+     <!-- <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <executions>
@@ -164,7 +167,7 @@ LICENSE file.
             </configuration>
           </execution>
         </executions>
-      </plugin>
+      </plugin>-->
     </plugins>
   </build>
 </project>

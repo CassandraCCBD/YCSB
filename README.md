@@ -68,3 +68,11 @@ To build the full distribution, with all database bindings:
 To build a single database binding:
 
     mvn -pl com.yahoo.ycsb:mongodb-binding -am clean package
+
+Cassandra Team Additions
+------------------------
+
+YCSB in it's current form does not support the Cassandra-Core-Driver v3 which supports the v4 Binary Protocol followed by Cassandra 3.x
+Modifications have been made to the pom.xml file in the Cassandra binding to change the version and add the Gauva 18.0 dependency (required by DataStax Java Driver 3.0.0)
+
+

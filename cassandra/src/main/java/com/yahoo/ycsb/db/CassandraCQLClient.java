@@ -126,7 +126,9 @@ public class CassandraCQLClient extends DB {
           cluster = Cluster.builder().withCredentials(username, password)
               .withPort(Integer.valueOf(port)).addContactPoints(hosts).build();
         } else {
+	// Adding a protocol version 3 since it's failing with Cassandra v3.6
           cluster = Cluster.builder().withPort(Integer.valueOf(port))
+	      //.withProtocolVersion(ProtocolVersion.V3)
               .addContactPoints(hosts).build();
         }
 
@@ -168,7 +170,7 @@ public class CassandraCQLClient extends DB {
   @Override
   public void cleanup() throws DBException {
     if (INIT_COUNT.decrementAndGet() <= 0) {
-      cluster.shutdown();
+      cluster.close();
     }
   }
 
@@ -210,7 +212,7 @@ public class CassandraCQLClient extends DB {
       if (debug) {
         System.out.println(stmt.toString());
       }
-
+      //System.out.println("Statement is " + stmt);
       ResultSet rs = session.execute(stmt);
 
       // Should be only 1 row
@@ -387,7 +389,7 @@ public class CassandraCQLClient extends DB {
       if (debug) {
         System.out.println(insertStmt.toString());
       }
-
+      //System.out.println("Insert stmt is " + insertStmt);
       session.execute(insertStmt);
 
       return Status.OK;

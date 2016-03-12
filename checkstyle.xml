@@ -63,7 +63,7 @@ LICENSE file.
     <module name="Translation"/>
 
     <module name="FileLength"/>
-    <module name="FileTabCharacter"/>
+<!--    <module name="FileTabCharacter"/> -->
 
     <module name="TreeWalker">
 

@@ -39,13 +39,21 @@ LICENSE file.
      <dependency>
        <groupId>com.datastax.cassandra</groupId>
        <artifactId>cassandra-driver-core</artifactId>
-       <version>${cassandra.cql.version}</version>
+       <!-- changing this version to a hardcoded 3.0.0 
+       <version>${cassandra.cql.version}</version> -->
+       <version>3.0.0</version>
      </dependency>
      <dependency>
        <groupId>com.yahoo.ycsb</groupId>
        <artifactId>core</artifactId>
        <version>${project.version}</version>
        <scope>provided</scope>
+     </dependency>
+     <!-- we need guava 16.01 for the new CQL driver -->
+     <dependency>
+     	<groupId>com.google.guava</groupId>
+	<artifactId>guava</artifactId>
+	<version>18.0</version>
      </dependency>
   </dependencies>
 </project>
